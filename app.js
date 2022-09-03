@@ -62,8 +62,8 @@ const showNewsDisplay = newsItem =>{
             <div class="d-flex justify-content-between px-5             align-items-center">
               <div class="d-flex align-items-center">
                 <img style="width:40px; height: 40px;" class="rounded-5" src="${value.author.img}" alt="">
-                <div class="ps-3"><h6>${value.author.name}</h6>
-                  <h6 class="text-muted">${value.author.published_date}</h6></div>
+                <div class="ps-3"><h6>${value.author.name ? value.author.name: 'No Data Found'}</h6>
+                  <h6 class="text-muted">${value.author.published_date ? value.author.published_date: 'No Data Found'}</h6></div>
               </div>
               <div>
                 <i class="fa-solid fa-eye"></i>
@@ -122,8 +122,8 @@ const modalView = (getModel)=>{
   <div class="d-flex justify-content-between px-5             align-items-center">
     <div class="d-flex align-items-center">
       <img style="width:40px; height: 40px;" class="rounded-5" src="${value.author.img}" alt="">
-      <div class="ps-3"><h6>${value.author.name}</h6>
-        <h6 class="text-muted">${value.author.published_date}</h6></div>
+      <div class="ps-3"><h6>${value.author.name ? value.author.name: 'NO Data Found'}</h6>
+        <h6 class="text-muted">${value.author.published_date ? value.author.published_date: 'NO Data Found'}</h6></div>
     </div>
     <div>
       <i class="fa-solid fa-eye"></i>

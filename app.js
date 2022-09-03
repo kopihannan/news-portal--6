@@ -80,9 +80,10 @@ const showNewsDisplay = newsItem =>{
     `
 
     cardView.appendChild(div)
-    toggleLoading(false)
+
     
   })
+  toggleLoading(false)
 
 }
 

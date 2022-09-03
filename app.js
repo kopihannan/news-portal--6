@@ -1,4 +1,3 @@
-
 const allCatagoryList = async ()=>{
   const url = `https://openapi.programming-hero.com/api/news/categories`;
   try{
@@ -46,7 +45,7 @@ const showNewsDisplay = newsItem =>{
   const totalNews = newsItem.length;
   const resultItem = document.getElementById('result-item')
   resultItem.innerHTML = `
-     <h3 class="fw-bold text-warning">Available News: ${totalNews}</h3>
+     <h3 class="fw-bold text-warning">Available News: ${totalNews ? totalNews: 'Sorry! No News Data Available'}</h3>
   `
 
   newsItem.forEach(function(value){

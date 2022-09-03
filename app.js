@@ -1,10 +1,15 @@
-const allCatagoryList = ()=>{
-    const url = 'https://openapi.programming-hero.com/api/news/categories'
-    fetch(url)
-    .then(rel => rel.json())
-    .then(data => setShowDisplayCatagories(data.data.news_category))
-}
 
+const allCatagoryList = async ()=>{
+  const url = `https://openapi.programming-hero.com/api/news/categories`;
+  try{
+      const res = await fetch(url);
+      const data = await res.json();
+      setShowDisplayCatagories(data.data.news_category)
+  }
+  catch(error){
+    console.log(error);
+  }
+}
 const setShowDisplayCatagories = (navCatagory)=>{
     // console.log(navCatagory);
     const catagoryRow = document.getElementById('catagory-row')

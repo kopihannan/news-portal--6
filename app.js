@@ -13,13 +13,14 @@ const setShowDisplayCatagories = (navCatagory)=>{
         const createDiv = document.createElement('div')
         createDiv.innerHTML = `
         <nav class="nav">
-            <a onclick="catagoryBtn('${value.category_id}')" class="nav-link text-info" href="#">${value.category_name}</a>
+            <a onclick="catagoryBtn('${value.category_id}',toggleLoading(true))" class="nav-link text-info" href="#">${value.category_name}</a>
         </nav>
 
         `
         catagoryRow.appendChild(createDiv)
+  
     })
-
+    toggleLoading(false)
 }
 
 const catagoryBtn =(id)=>{
@@ -29,11 +30,22 @@ const catagoryBtn =(id)=>{
     .then(data => showNewsDisplay(data.data))
 }
 //   Details menu section 
+
+
+
+
 const showNewsDisplay = newsItem =>{
   const cardView = document.getElementById('card-view')
   cardView.innerHTML = ``;
+
+  const totalNews = newsItem.length;
+  const resultItem = document.getElementById('result-item')
+  resultItem.innerHTML = `
+     <h3 class="fw-bold text-warning">Available News: ${totalNews}</h3>
+  `
+
   newsItem.forEach(function(value){
-    // console.log(value);
+    
 
     const div = document.createElement('div')
     div.classList.add('col')
@@ -62,9 +74,26 @@ const showNewsDisplay = newsItem =>{
 
         </div>
     `
+
     cardView.appendChild(div)
+    toggleLoading(false)
+    
   })
+
 }
+
+  // toggle loading bar
+  const toggleLoading = (isLoading)=>{
+
+    const loadingBar = document.getElementById('loading')
+    if(isLoading){
+      loadingBar.classList.remove('d-none')
+    }
+    else{
+      loadingBar.classList.add('d-none')
+    }
+  }
+
 
 const seeMore = (showModal) =>{
   const url = `https://openapi.programming-hero.com/api/news/${showModal}`
@@ -100,6 +129,7 @@ const modalView = (getModel)=>{
 
     `
   })
+
 
 }
 allCatagoryList()

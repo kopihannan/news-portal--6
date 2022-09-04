@@ -11,17 +11,17 @@ const allCatagoryList = async ()=>{
 }
 const setShowDisplayCatagories = (navCatagory)=>{
     // console.log(navCatagory);
-    const catagoryRow = document.getElementById('catagory-row')
+    const dynamicList = document.getElementById('dynamice-list-item')
 
     navCatagory.forEach(function(value){
-        const createDiv = document.createElement('div')
-        createDiv.innerHTML = `
-        <nav class="nav">
-            <a onclick="catagoryBtn('${value.category_id}',toggleLoading(true))" class="nav-link text-info" href="#">${value.category_name}</a>
-        </nav>
+        const anchorTag = document.createElement('a');
+        
 
+        anchorTag.innerHTML = ` 
+        <a onclick="catagoryBtn('${value.category_id}',toggleLoading(true))" class="nav-link text-info fw-bold" href="#">${value.category_name}</a>
+        
         `
-        catagoryRow.appendChild(createDiv)
+dynamicList.appendChild(anchorTag)
   
     })
     toggleLoading(false)

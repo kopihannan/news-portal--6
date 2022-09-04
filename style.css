@@ -1,21 +1,8 @@
-.dynamic-list{
+.dynamic-list {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     justify-content: space-evenly;
-    align-items: center;   
-}
-@media (max-width: 600px) {
-    .dynamic-list{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-         justify-content: space-evenly;
-         align-items: center;
-    }
-    a {
-        cursor: pointer;
-        margin: 5px;  
-        text-align: center;
-    }
+    align-items: center;
 }
 
 a {
@@ -23,4 +10,23 @@ a {
     margin: 5px;
     text-align: center;
     padding: 0px 0px;
+}
+
+.form-select {
+    width: 180px;
+}
+
+@media (max-width: 600px) {
+    .dynamic-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    a {
+        cursor: pointer;
+        margin: 5px;
+        text-align: center;
+    }
 }
